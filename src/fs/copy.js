@@ -14,7 +14,11 @@ const copy = async () => {
       );
     }
   } catch (err) {
+<<<<<<< HEAD
     throw Error(`\u001B[31mFS operation failed\u001B[0m ${err.message}`);
+=======
+    throw Error("FS operation failed", err.message);
+>>>>>>> 3b942e5 (feat: add raname)
   }
 };
 
