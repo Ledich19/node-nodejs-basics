@@ -1,8 +1,8 @@
 import { access, readdir } from "node:fs/promises";
+
 const projectFolder = new URL("./files/", import.meta.url);
 
 const list = async () => {
-  // Write your code here
   try {
     await access(projectFolder);
     const files = await readdir(projectFolder, { withFileTypes: true });

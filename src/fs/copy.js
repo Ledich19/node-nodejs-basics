@@ -1,9 +1,8 @@
-import { mkdir, access, copyFile, readdir } from "node:fs/promises";
+import { mkdir, copyFile, readdir } from "node:fs/promises";
 const folderEnd = new URL("./files_copy/", import.meta.url);
 const folderStart = new URL("./files/", import.meta.url);
 
 const copy = async () => {
-  // Write your code here
   try {
     await mkdir(folderEnd, { recursive: false });
     const files = await readdir(folderStart, { withFileTypes: true });
@@ -14,7 +13,7 @@ const copy = async () => {
       );
     }
   } catch (err) {
-    throw Error(`\u001B[31mFS operation failed\u001B[0m ${err.message}`);
+    throw Error(`\u001B[31mFS operation failed\u001B[0m`);
   }
 };
 
