@@ -3,8 +3,8 @@ import os from "node:os";
 const filePath = new URL("./worker", import.meta.url);
 
 const performCalculations = async () => {
-  // Write your code here
   const cpus = os.cpus();
+  
   const promises = cpus.map((info, i) => {
     return new Promise((resolve, reject) => {
       const worker = new Worker(filePath);
@@ -14,9 +14,9 @@ const performCalculations = async () => {
       });
     });
   });
-
+ 
   const result = await Promise.allSettled(promises);
-  console.log(result);
+  console.log(result.map(({value}) => value));
   process.exit();
 };
 

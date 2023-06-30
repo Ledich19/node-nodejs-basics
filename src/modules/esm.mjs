@@ -7,6 +7,8 @@ import "./files/c.js";
 const random = Math.random();
 
 let unknownObject;
+
+// there is createRequire i could have use it
 const readFileJson = (path) => {
   const url = new URL(path, import.meta.url);
   const jsonData = readFileSync(url, "utf-8");
